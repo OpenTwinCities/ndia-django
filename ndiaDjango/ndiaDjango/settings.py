@@ -7,6 +7,7 @@ https://docs.djangoproject.com/en/1.7/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
+from ndiaDjango.config import name_of_database, user, password, host, port
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -36,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'communityAssets'
+    'communityAssets',
+	'tastypie',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -59,8 +61,12 @@ WSGI_APPLICATION = 'ndiaDjango.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': name_of_database,
+		'USER' : user,
+		'PASSWORD' : password,
+		'HOST' : host,
+		'PORT' : port
     }
 }
 
