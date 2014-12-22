@@ -132,6 +132,10 @@ python manage.py runserver
 See the Northside Digital Assets System
 =======================================
 
+## Manage the data
+
+Visit `http://localhost:8000/admin/` and enter the username and password
+created above. Then, use the UI to add an Organization, then an Event.
 
 ## Query the API
 
