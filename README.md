@@ -37,11 +37,6 @@ provides commands and organization for using multiple virtualenvs.
 Instructions in this README assume that virtualenv and virtualenvwrapper are
 installed and make use of those tools.
 
-## PostgreSQL
-
-PostgreSQL provides the database. So 
-[download and install it](http://www.postgresql.org/download/).
-
 ### Install
 
 ```
@@ -72,7 +67,7 @@ Regradless of which database you use, you will need to run database migrations
 to prepare the database.
 
 ```
-cd ..
+cd ndia-django/ndiaDjango
 python manage.py migrate
 ```
 
@@ -82,6 +77,7 @@ In order to login to the backend's UI and add data, you're going to need a
 superuser in the database. To create one, simply run
 
 ```
+cd ndia-django/ndiaDjango
 python manage.py createsuperuser
 ```
 
@@ -90,7 +86,7 @@ Run Northside Digital Assets System
 ===================================
 
 ```
-cd ndia-django
+cd ndia-django/ndiaDjango
 workon ndia-django
 python manage.py runserver
 ```
@@ -125,6 +121,13 @@ Configure Northside Digital Assets System Database
 
 This section will help you setup the Northside Digital Asset System to use
 a PostgreSQL database.
+
+## Install PostgreSQL
+
+Obviously, you'll need to have PostgreSQL installed and running. So 
+[download and install it](http://www.postgresql.org/download/).
+
+## Configure
 
 First, create a user and database in PostgreSQL
 
