@@ -61,47 +61,15 @@ mkvirtualenv ndia-djagno
 pip install -r requirements.txt
 ```
 
-## Configure and Northside Digital Assets System Database
+## Prep the Database
 
-We have a small bit of database setup and configuration to do.
+By default, the Northside Digital Assets System Backend will use a SQLite 
+database named *ndia.db*, which requires no configuration for connection. See
+**Configure Northside Digital Assets System Database** below if you would like
+to use a PostgreSQL database instead.
 
-First, create a user and database in PostgreSQL
-
-```
-sudo su postgres
-createuser ndia -W
-createdb ndia
-```
-
-We also need to update PostgreSQL to allow for password based authentication of
-the user that we just created. Edit the PostgreSQL Authentication Configuration
-File (located at /etc/postgresql/<version>/main/pg_hba.conf in Debian) and
-add the following to the file immediately after `# "local" is for Unix domain 
-socket connections only`:
-
-```
-local   all             ndia                                    trust
-```
-
-Save and exit. Now restart PostgreSQL
-
-```
-sudo service postgresql restart
-```
-
-Next, configure the Northside Digital Assets System to use what we just 
-created.
-
-```
-cd ndiaDjango/ndiaDjango
-cp config.py.sample config.py
-```
-
-Now edit settings.py with your favorite editor. If you have a default 
-installation of PostgreSQL on your local machine, then you do not need to change
-the host or port settings. 
-
-Once your database is configured, run a migration:
+Regradless of which database you use, you will need to run database migrations
+to prepare the database.
 
 ```
 cd ..
@@ -151,3 +119,45 @@ pip install -r requirements.txt
 cd ndiaDjango
 python manage.py migrate
 ```
+
+Configure Northside Digital Assets System Database
+==================================================
+
+This section will help you setup the Northside Digital Asset System to use
+a PostgreSQL database.
+
+First, create a user and database in PostgreSQL
+
+```
+sudo su postgres
+createuser ndia -W
+createdb ndia
+```
+
+We also need to update PostgreSQL to allow for password based authentication of
+the user that we just created. Edit the PostgreSQL Authentication Configuration
+File (located at /etc/postgresql/<version>/main/pg_hba.conf in Debian) and
+add the following to the file immediately after `# "local" is for Unix domain 
+socket connections only`:
+
+```
+local   all             ndia                                    trust
+```
+
+Save and exit. Now restart PostgreSQL
+
+```
+sudo service postgresql restart
+```
+
+Next, configure the Northside Digital Assets System to use what we just 
+created.
+
+```
+cd ndiaDjango/ndiaDjango
+cp config.py.sample config.py
+```
+
+Now edit settings.py with your favorite editor. If you have a default 
+installation of PostgreSQL on your local machine, then you do not need to change
+the host or port settings. 
