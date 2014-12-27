@@ -76,9 +76,11 @@ def databases(config=None):
     if configed:
         engine = 'django.db.backends.postgresql_psycopg2'
         name_of_database = getattr(config, 'name_of_database', 'ndia')
+        logger.info('Using PostgreSQL Database')
     else:
         engine = 'django.db.backends.sqlite3'
         name_of_database = 'ndia.db'
+        logger.info('Using SQLite Database')
 
     return {
         'default': {
@@ -116,4 +118,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
