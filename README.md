@@ -69,7 +69,6 @@ First, create a user and database in PostgreSQL
 
 ```
 sudo su postgres
-psql createuser ndia
 createuser ndia -W
 createdb ndia
 ```
