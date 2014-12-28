@@ -12,6 +12,9 @@ administrators to edit and manage the above information.
 [ndia-angular](https://github.com/OpenTwinCities/ndia-angular) is intended to
 be a client of this backend.
 
+This backend is deployed online at <http://ndia.herokuapp.com/>. See 
+<http://ndia.herokuapp.com/api/events/?format=json> for example output.
+
 Dependencies
 ============
 
