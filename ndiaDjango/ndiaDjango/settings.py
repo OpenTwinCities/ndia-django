@@ -62,8 +62,18 @@ WSGI_APPLICATION = 'ndiaDjango.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-def databases(config=None):
-    
+def databases():
+
+    # Database config on Heroku is simple
+    if 'HEROKU' in os.environ and os.environ['HEROKU']:
+        import dj_database_url
+        return dj_database_url.config() 
+ 
+    try:
+        from ndiaDjango import config
+    except ImportError:
+        config = None
+   
     # Note whether configuration was provided or not
     configed = bool(config) or 'DATABASE_URL' in os.environ
 
@@ -93,13 +103,8 @@ def databases(config=None):
         }
     }
 
-try:
-    from ndiaDjango import config as db_config 
-except ImportError:
-    db_config = None
 
-DATABASES = databases(db_config)
-
+DATABASES = databases()
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
