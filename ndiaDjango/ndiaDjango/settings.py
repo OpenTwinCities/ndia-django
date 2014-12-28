@@ -67,7 +67,9 @@ def databases():
     # Database config on Heroku is simple
     if 'HEROKU' in os.environ and os.environ['HEROKU']:
         import dj_database_url
-        return dj_database_url.config() 
+        return {
+            'default': dj_database_url.config() 
+        }
  
     try:
         from ndiaDjango import config
