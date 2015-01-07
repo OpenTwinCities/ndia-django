@@ -1,0 +1,5 @@
+name_of_database            = 'ndia'
+user                        = 'ndia'
+password                    = 'CHANGEME'
+host                        = '' # Empty host will default to localhost or
+port                        = '' # Empty port means default port

@@ -52,3 +52,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Project files
+config.py
+ndia.db
