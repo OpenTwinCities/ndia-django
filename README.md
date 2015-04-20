@@ -167,3 +167,8 @@ cp config.py.sample config.py
 Now edit settings.py with your favorite editor. If you have a default 
 installation of PostgreSQL on your local machine, then you do not need to change
 the host or port settings. 
+
+Possible Reading
+==============
+
+- [A Rest API using Django and authentication with OAuth2 AND third parties!](http://httplambda.com/a-rest-api-with-django-and-oauthw-authentication/)
